@@ -3,93 +3,30 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className="container text-center my-5">
+      <h3>
+        FitHobo.com is a sister concern of M360 Wellness, one of the leading
+        fitness & wellness organizations of Bangladesh established in 2016.
+        FitHobo.com launched in early 2017 to provide diet and fitness related
+        premium products to the clients of M360 Wellness.
+      </h3>
+      <br />
+      <h5>
+        With the growing demand, after operating for more than 2 years,
+        FitHobo.com started providing service to every health & fitness lover
+        and transformed into a one stop platform for diet, fitness & wellness
+        products. After working with fitness and wellness products and services
+        in 2022 FitHobo.com have launched a new segment for the fitness and
+        wellness service providers. A platform where customers will get all the
+        support needed to stay fit and healthy which includes consultancy from
+        Nutritionist, Psychologist and even Fitness trainer. Customers can book
+        online sessions from a wide range of consultants.
+      </h5>
+      <br />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <h5>
+      FitHobo.com also offers a book session where the customers can physically attend. Anyone can buy & sell diet, fitness & wellness products and services through this platform. For service providers authenticity is being verified so that customers always get the best service from FitHobo.com. Customers can compare between products and services to choose the best possible option for them. And all the products and service providers are closely monitored before going into the platform. “One Life, Live Healthy” is the simple yet strong motto of FitHobo.com
+      </h5>
+    </div>
   );
 }
