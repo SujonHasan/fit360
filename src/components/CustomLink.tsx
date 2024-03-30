@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const CustomLink: React.FC = ({ path, children }) => {
-  
+interface CustomLinkProps {
+  path: string;
+  children: React.ReactNode;
+}
+
+const CustomLink: React.FC<CustomLinkProps> = ({ path, children }) => {
+
   const pathname = usePathname();
   const active = pathname === path;
 

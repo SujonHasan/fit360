@@ -1,52 +1,15 @@
-"use client";
+import { ProductsRes } from "@/src/redux/services/workspace/products/type";
+import { FC } from "react";
+import { InitaialState } from ".";
 
-import Spinners from "@/app/components/Spinners";
-import { useProductsQuery } from "@/app/redux/services/workspace/products/api";
-import { useState } from "react";
-
-export type InitaialState = {
-  page: number;
-  perPage: number;
-};
-
-export default function ProductsPage() {
-  const [state, setState] = useState<InitaialState>({
-    page: 1,
-    perPage: 10,
-  });
-
-  const products = useProductsQuery(
-    {
-      page: state.page,
-      perPage: state.perPage,
-    },
-    { refetchOnMountOrArgChange: true }
-  );
-
-  if (products.status === "pending") return <Spinners />;
-
-  if (products.status === "rejected")
-    return (
-      <p className="text-danger text-center">Error {products?.error?.error} </p>
-    );
-
-  const loadNextPage = () => {
-    setState((prevState) => ({
-      ...prevState,
-      page: prevState.page + 1,
-    }));
-  };
-
-  const loadPreviousPage = () => {
-    setState((prevState) => ({
-      ...prevState,
-      page: prevState.page - 1,
-    }));
-  };
-
-
+const ProductsList: FC<{
+  state: InitaialState;
+  products: ProductsRes;
+  loadNextPage: () => void;
+  loadPreviousPage: () => void;
+}> = ({ state, products, loadNextPage, loadPreviousPage }) => {
   return (
-    <div className="container text-center my-5">
+    <>
       <div className="row justify-content-center gap-3">
         {products?.data?.data?.data.map((product) => (
           <div
@@ -78,11 +41,18 @@ export default function ProductsPage() {
         <button
           className="btn btn-success"
           onClick={loadNextPage}
-          disabled={state.page * state.perPage >= products?.data?.data?.total}
+          disabled={
+            !products ||
+            !products?.data ||
+            !products?.data?.data ||
+            state.page * state.perPage >= products?.data?.data?.total
+          }
         >
           {"Next >"}
         </button>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default ProductsList;

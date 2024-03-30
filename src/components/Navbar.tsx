@@ -35,10 +35,10 @@ const Navbar: React.FC = () => {
         >
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <CustomLink path={"/"} >Home</CustomLink>
+              <CustomLink path={"/"}>Home</CustomLink>
             </li>
             <li className="nav-item">
-              <CustomLink path={"/workspace/products"}>Products</CustomLink>
+              <CustomLink path={"/work-space/products"}>Products</CustomLink>
             </li>
             <li className="nav-item">
               <CustomLink path={"/clients/vendors"}>Vendors</CustomLink>
