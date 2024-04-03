@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import Navbar from "../src/components/Navbar";
 import Providers from "../src/redux/provider";
 import "./globals.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,16 +28,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {pathName !== "/signin" ? (
-          <>
-            <Providers>
+        <Providers>
+          {pathName !== "/signin" ? (
+            <>
               <Navbar />
               {children}
-            </Providers>
-          </>
-        ) : (
-          <Providers>{children}</Providers>
-        )}
+            </>
+          ) : (
+            <>{children}</>
+          )}
+        </Providers>
+        <ToastContainer />
       </body>
     </html>
   );

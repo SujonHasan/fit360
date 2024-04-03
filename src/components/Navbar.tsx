@@ -1,21 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useLogOutMutation } from "../redux/services/auth/api";
 import { Constants } from "../utils/constnts";
 import CustomLink from "./CustomLink";
-import { useLogOutMutation } from "../redux/services/auth/api";
-import { redirect, useRouter } from "next/navigation";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const userInfo = localStorage.getItem(Constants.USER_INFO);
+  const user = JSON.parse(userInfo);
 
   const router = useRouter();
 
   const [logOut] = useLogOutMutation();
 
-  // console.log("user Info ===  ", userInfo);
+  // console.log("user Info ===  ", user?.username);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -59,7 +61,11 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
 
-          {userInfo ? <h1> {userInfo.firstName} </h1> : ""}
+          {userInfo ? (
+            <span className="px-2 text-body"> {user?.username} </span>
+          ) : (
+            ""
+          )}
 
           {userInfo ? (
             <Link
