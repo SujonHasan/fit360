@@ -1,7 +1,12 @@
+import Protected from "@/src/containers/layout/protected";
 import Products from "@/src/containers/work-space/products";
 
 const ProductsPage = () => {
-  return <Products />;
+  return (
+    <Protected>
+      <Products />
+    </Protected>
+  );
 };
 
 export default ProductsPage;

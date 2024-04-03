@@ -20,10 +20,13 @@ export default function Vendors() {
     perPage: state.perPage,
   });
 
+  // console.log("vendors ==   ", vendors?.error?.message);
+  
+
   if (vendors.status === "pending") return <Spinners />;
 
   if (vendors.status === "rejected")
-    return <p className="text-danger text-center">Error.......</p>;
+    return <p className="text-danger text-center">Error....... {vendors?.error?.message} </p>;
 
   const loadNextPage = () => {
     setState((prevstate) => ({

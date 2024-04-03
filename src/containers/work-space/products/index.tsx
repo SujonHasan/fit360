@@ -27,7 +27,11 @@ export default function Products() {
   if (products.status === "pending") return <Spinners />;
 
   if (products.status === "rejected")
-    return <p className="text-danger text-center">Error...... </p>;
+    return (
+      <p className="text-danger text-center">
+        Error...... products?.error?.message{" "}
+      </p>
+    );
 
   const loadNextPage = () => {
     setState((prevState) => ({
@@ -45,12 +49,11 @@ export default function Products() {
 
   return (
     <div className="container text-center my-5">
-
       <ProductsList
-      state={state}
-      products={products}
-      loadNextPage={loadNextPage}
-      loadPreviousPage={loadPreviousPage}
+        state={state}
+        products={products}
+        loadNextPage={loadNextPage}
+        loadPreviousPage={loadPreviousPage}
       />
     </div>
   );

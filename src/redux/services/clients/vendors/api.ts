@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { VendorsReq, VendorsRes } from "./type";
+import { Constants } from "@/src/utils/constnts";
+import { baseQuery } from "@/src/utils/auth";
 
 export const vendorsApi = createApi({
   reducerPath: "vendorApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3333/back-end/",
-  }),
+  baseQuery: baseQuery(),
   endpoints: (builder) => ({
     vendors: builder.query<VendorsRes, VendorsReq>({
       query: (args) =>
-        `clients/vendors?page=${args.page}&perPage=${args.perPage}`,
+        `${Constants.CLIENTS}/vendors?page=${args.page}&perPage=${args.perPage}`,
     }),
   }),
 });

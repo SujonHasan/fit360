@@ -2,13 +2,27 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Constants } from "../utils/constnts";
 import CustomLink from "./CustomLink";
+import { useLogOutMutation } from "../redux/services/auth/api";
+import { redirect, useRouter } from "next/navigation";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const userInfo = localStorage.getItem(Constants.USER_INFO);
+
+  const router = useRouter();
+
+  const [logOut] = useLogOutMutation();
+
+  // console.log("user Info ===  ", userInfo);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleOnclick = () => {
+    logOut({ action: () => router.push("/signin") });
   };
 
   return (
@@ -44,6 +58,20 @@ const Navbar: React.FC = () => {
               <CustomLink path={"/clients/vendors"}>Vendors</CustomLink>
             </li>
           </ul>
+
+          {userInfo ? <h1> {userInfo.firstName} </h1> : ""}
+
+          {userInfo ? (
+            <Link
+              href={""}
+              className="text-decoration-none text-danger"
+              onClick={handleOnclick}
+            >
+              Logout
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </nav>
